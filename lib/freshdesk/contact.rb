@@ -15,6 +15,10 @@ module Freshdesk
         new("/contacts#{query}").resource.get
       end
 
+      def filter_on_contacts(query: "")
+        new("search/contacts?query=#{query}").resource.get
+      end
+
       def update_a_contact(id:, params: {})
         new("/contacts/#{id}").resource(id: id, params: params).put
       end

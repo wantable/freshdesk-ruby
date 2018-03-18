@@ -17,6 +17,10 @@ module Freshdesk
         new("/tickets#{query}").resource.get
       end
 
+      def filter_on_tickets(query: "")
+        new("/search/tickets?query=\"#{query}\"").resource.get
+      end
+
       def update_a_ticket(id:, params: {})
         new("/tickets/#{id}").resource(id: id, params: params).put
       end

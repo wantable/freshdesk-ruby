@@ -32,25 +32,25 @@ module Freshdesk
     def post
       @resource.post(json_payload, content_type: "application/json")
     rescue RestClient::Exception => e
-      raise e, api_error_message(e)
+      e.response
     end
 
     def get
       @resource.get(accept: "application/json")
     rescue RestClient::Exception => e
-      raise e, api_error_message(e)
+      e.response
     end
 
     def delete
       @resource.delete(accept: "application/json")
     rescue RestClient::Exception => e
-      raise e, api_error_message(e)
+      e.response
     end
 
     def put
       @resource.put(json_payload, content_type: "application/json")
     rescue RestClient::Exception => e
-      raise e, api_error_message(e)
+      e.response
     end
 
     private

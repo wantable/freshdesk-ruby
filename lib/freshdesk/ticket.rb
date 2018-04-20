@@ -33,6 +33,10 @@ module Freshdesk
         new("/tickets/#{id}/restore").resource(id: id).put
       end
 
+      def create_a_note(id:, params: {})
+        new("/tickets/#{id}/notes").resource(id: id, params: params).post
+      end
+
       def list_all_ticket_fields
         new("/ticket_fields").resource.get
       end
